@@ -199,7 +199,7 @@ Temporally ordered trajectories consistently outperform both random and shuffled
 ## Stage-wise Repair Analysis
 
 <p align="center">
-  <img src="figure_Stage_wise_pass1.png" width="900">
+  <img src="figure_stage_wise_pass1.png" width="900">
 </p>
 
 <p align="center">
@@ -219,7 +219,7 @@ Temporal ordering improves repair performance across:
 ## Learning Curve Analysis
 
 <p align="center">
-  <img src="learning_curve_pass1 (1).png" width="900">
+  <img src="learning_curve_pass1.png" width="900">
 </p>
 
 <p align="center">
