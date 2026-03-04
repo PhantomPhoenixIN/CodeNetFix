@@ -272,11 +272,25 @@ The largest gains occur for:
 
 ---
 
-# Repository Structure
+# Repository Files
 
-The `files/` directory contains the scripts used for dataset construction, model training, evaluation, and analysis.
+The `files/` directory contains scripts and data used for **dataset construction, model training, evaluation, and analysis** in the CodeNetFix project.
 
-## Dataset Construction
+---
+
+# Dataset Files
+
+These files contain extracted problem metadata and test cases used during training and evaluation.
+
+| File | Description |
+|-----|-------------|
+| `problem_tests.json` | Contains test cases associated with each programming problem. These tests are used for execution-based evaluation of generated repairs. |
+| `problem_descriptions.jsonl` | Raw problem descriptions extracted from Project CodeNet. Each entry corresponds to a programming problem description. |
+| `problem_description_en.jsonl` | Processed and normalized English versions of problem descriptions used as input prompts during model training. |
+
+---
+
+# Dataset Construction
 
 These scripts are used to construct the **CodeNetFix dataset variants** and process the Project CodeNet submissions.
 
@@ -290,7 +304,7 @@ These scripts are used to construct the **CodeNetFix dataset variants** and proc
 
 ---
 
-## Model Training
+# Model Training
 
 These scripts train the neural program repair model using different dataset variants.
 
@@ -302,19 +316,19 @@ These scripts train the neural program repair model using different dataset vari
 
 ---
 
-## Evaluation
+# Evaluation
 
 Scripts used to evaluate model performance on the test set.
 
 | File | Description |
 |-----|-------------|
-| `evaluate_HT_stage_scored.py` | Evaluates the HT model with stage-wise repair analysis. |
-| `evaluate_HTS_stage_scored.py` | Evaluates the HTS model with stage-wise analysis. |
+| `evaluate_HT_stage_scored.py` | Evaluates the HT model and reports stage-wise repair performance. |
+| `evaluate_HTS_stage_scored.py` | Evaluates the HTS model and reports stage-wise repair performance. |
 | `common_evaluation.py` | Shared utilities for computing evaluation metrics such as Pass@1 and compilability. |
 
 ---
 
-## Prediction Utilities
+# Prediction Utilities
 
 | File | Description |
 |-----|-------------|
@@ -322,7 +336,7 @@ Scripts used to evaluate model performance on the test set.
 
 ---
 
-## Learning Curve Experiments
+# Learning Curve Experiments
 
 Scripts used to perform the **learning curve analysis** described in the paper.
 
@@ -333,7 +347,7 @@ Scripts used to perform the **learning curve analysis** described in the paper.
 
 ---
 
-## Experimental Workflow
+# Experimental Workflow
 
 The typical workflow used in this project is:
 
@@ -348,5 +362,5 @@ The typical workflow used in this project is:
    - Measure execution-based repair performance (Pass@1)
 
 4. **Analysis**
-   - Stage-wise repair analysis
-   - Learning curve experiments
+   - Perform stage-wise repair analysis
+   - Conduct learning curve experiments
