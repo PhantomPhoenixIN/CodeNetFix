@@ -39,10 +39,10 @@ Below is an example illustrating how programmers progressively refine solutions 
 
 <p align="center">
   <em>
-    Execution-grounded quality-stratified code translation framework.
-    Multilingual source programs from Project CodeNet are translated using
-    multiple teacher models and stratified based on AST parsability,
-    compilability, and functional correctness.
+    Example of a temporally ordered historic repair trajectory for a fixed 
+(u_i, p_j, l_k) tuple (user, problem, language). 
+Each submission receives execution-based feedback (e.g., Wrong Answer, Time Limit Exceeded), guiding iterative refinement until an Accepted solution is obtained. 
+This illustrates the progressive nature of human program repair and motivates preserving chronological structure during training.
   </em>
 </p>
 
