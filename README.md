@@ -274,3 +274,79 @@ The largest gains occur for:
 
 # Repository Structure
 
+The `files/` directory contains the scripts used for dataset construction, model training, evaluation, and analysis.
+
+## Dataset Construction
+
+These scripts are used to construct the **CodeNetFix dataset variants** and process the Project CodeNet submissions.
+
+| File | Description |
+|-----|-------------|
+| `data_collection_codenet_bugfix.py` | Collects submission data from Project CodeNet and prepares the raw bug–fix dataset. |
+| `dataset_mining_with_stage_score.py` | Extracts historic repair trajectories and assigns stage information (early, intermediate, late) based on trajectory position. |
+| `build_codenetfix_ht_shuffled.py` | Generates the **HTS dataset variant** by shuffling bug–fix pairs while preserving dataset scale. |
+| `extracting_problem_description.py` | Extracts problem descriptions associated with each program from the dataset. |
+| `problem_description_en.py` | Processes and normalizes problem descriptions into English format for training prompts. |
+
+---
+
+## Model Training
+
+These scripts train the neural program repair model using different dataset variants.
+
+| File | Description |
+|-----|-------------|
+| `train_rectifier_codenetfix_rf.py` | Trains the repair model using the **Random Fix (RF)** dataset variant. |
+| `train_rectifier_codenetfix_ht.py` | Trains the repair model using **temporally ordered repair trajectories (HT)**. |
+| `train_rectifier_codenetfix_ht_shuffled.py` | Trains the repair model using **shuffled repair trajectories (HTS)**. |
+
+---
+
+## Evaluation
+
+Scripts used to evaluate model performance on the test set.
+
+| File | Description |
+|-----|-------------|
+| `evaluate_HT_stage_scored.py` | Evaluates the HT model with stage-wise repair analysis. |
+| `evaluate_HTS_stage_scored.py` | Evaluates the HTS model with stage-wise analysis. |
+| `common_evaluation.py` | Shared utilities for computing evaluation metrics such as Pass@1 and compilability. |
+
+---
+
+## Prediction Utilities
+
+| File | Description |
+|-----|-------------|
+| `common_prediction.py` | Contains shared prediction and inference utilities used during evaluation and testing. |
+
+---
+
+## Learning Curve Experiments
+
+Scripts used to perform the **learning curve analysis** described in the paper.
+
+| File | Description |
+|-----|-------------|
+| `learning_curve_training_HT.py` | Trains the model on different fractions of the **HT dataset** (25%, 50%, 75%, 100%). |
+| `learning_curve_training_HTS.py` | Trains the model on different fractions of the **HTS dataset** for comparison. |
+
+---
+
+## Experimental Workflow
+
+The typical workflow used in this project is:
+
+1. **Dataset Construction**
+   - Extract repair trajectories from Project CodeNet
+   - Build dataset variants (RF, HTS, HT)
+
+2. **Model Training**
+   - Train CodeT5-based repair models using each dataset variant
+
+3. **Evaluation**
+   - Measure execution-based repair performance (Pass@1)
+
+4. **Analysis**
+   - Stage-wise repair analysis
+   - Learning curve experiments
