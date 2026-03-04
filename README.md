@@ -33,7 +33,18 @@ We hypothesize that **preserving this temporal structure improves neural repair 
 
 Below is an example illustrating how programmers progressively refine solutions through multiple submissions.
 
-![Repair Trajectory Example](figures/trajectory_example.png)
+<p align="center">
+  <img src="Program Submission.png" width="900">
+</p>
+
+<p align="center">
+  <em>
+    Execution-grounded quality-stratified code translation framework.
+    Multilingual source programs from Project CodeNet are translated using
+    multiple teacher models and stratified based on AST parsability,
+    compilability, and functional correctness.
+  </em>
+</p>
 
 Each submission receives execution feedback (Wrong Answer, Time Limit Exceeded, etc.), guiding iterative refinement until an **Accepted solution** is obtained.
 
