@@ -364,3 +364,41 @@ The typical workflow used in this project is:
 4. **Analysis**
    - Perform stage-wise repair analysis
    - Conduct learning curve experiments
+  
+## Model Architecture, Training Setup, and Hardware Configuration
+
+The following table summarizes the model architecture, training configuration, and hardware environment used consistently across all experiments.
+
+| Setting | Value |
+|--------|-------|
+| **Base model** | CodeT5-base |
+| **Model size** | ~220M parameters |
+| **Training strategy** | Full fine-tuning (FFT) |
+| **Repair formulation** | Code-to-code translation |
+| **Target languages evaluated** | C++, Java, Python |
+| **Optimizer** | AdamW |
+| **Learning rate** | 2 × 10⁻⁴ |
+| **Learning rate schedule** | Linear warmup followed by linear decay |
+| **Warmup steps** | 100 |
+| **Gradient clipping** | 1.0 |
+| **Batch size** | 8 |
+| **Gradient accumulation steps** | 1 |
+| **Maximum training epochs** | 30 |
+| **Early stopping** | Patience of 3 epochs |
+| **Prompt maximum length** | 512 tokens |
+| **Target maximum length** | 512 tokens |
+| **Maximum generation length** | 128 tokens |
+| **Decoding strategy** | Greedy decoding |
+| **Precision** | FP16 (mixed precision) |
+| **Gradient checkpointing** | Enabled |
+| **Random seed** | 42 |
+| **Hardware** | 2 × NVIDIA A100 GPUs (40 GB each) |
+| **Evaluation metric** | Pass@1 (execution-based correctness) |
+
+All experiments use **identical model architecture, training configuration, and evaluation protocol**. The only difference across experiments is the **training dataset organization**, comparing the three dataset variants:
+
+- **CodeNetFix-RF** — Random bug–fix pair per trajectory  
+- **CodeNetFix-HTS** — Shuffled historic trajectories  
+- **CodeNetFix-HT** — Temporally ordered historic trajectories  
+
+This controlled setup ensures that observed improvements arise **solely from temporal repair structure**, rather than architectural or optimization differences.
