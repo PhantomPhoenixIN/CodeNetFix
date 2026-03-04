@@ -122,17 +122,15 @@ Input prompt format:
 
 Task:
 
-Given a buggy program and its problem description, generate a corrected version.
+<p align="center">
+  <img src="Automatic_Program_Repair_Prompt.png" width="900">
+</p>
 
-Problem Description:
-
-{description}
-
-Buggy Code:
-
-{buggy_code}
-
-Fixed Code:
+<p align="center">
+  <em>
+    Prompt template used for all repair models. The same template is applied across dataset variants for consistency.
+  </em>
+</p>
 
 
 Training setup:
@@ -184,7 +182,15 @@ This corresponds to **1,405 additional correct repairs.**
 
 ## Overall Repair Performance
 
-![Overall Performance](figures/overall_results.png)
+<p align="center">
+  <img src="figure3_overall_pass1.png" width="900">
+</p>
+
+<p align="center">
+  <em>
+    Overall execution-based repair performance (Pass@1) of CodeNetFix variants evaluated on the CodeNetFix-RF test split. Preserving temporal repair order (HT) yields consistent improvements over both the Random Fix (RF) and shuffled trajectory (HTS) baselines.
+  </em>
+</p>
 
 Temporally ordered trajectories consistently outperform both random and shuffled variants.
 
@@ -192,7 +198,15 @@ Temporally ordered trajectories consistently outperform both random and shuffled
 
 ## Stage-wise Repair Analysis
 
-![Stage-wise Results](figures/stage_results.png)
+<p align="center">
+  <img src="figure_Stage_wise_pass1.png" width="900">
+</p>
+
+<p align="center">
+  <em>
+    Stage-wise Pass@1 performance across repair trajectory positions on the CodeNetFix-RF test split. While repair difficulty remains comparable across early, intermediate, and late stages, temporally ordered supervision (HT) yields consistent improvements over shuffled (HTS) and random (RF) variants at all trajectory positions. This indicates that temporal repair structure enhances general repair modeling rather than benefiting only specific stages of refinement.
+  </em>
+</p>
 
 Temporal ordering improves repair performance across:
 
@@ -204,7 +218,15 @@ Temporal ordering improves repair performance across:
 
 ## Learning Curve Analysis
 
-![Learning Curve](figures/learning_curve.png)
+<p align="center">
+  <img src="learning_curve_pass1 (1).png" width="900">
+</p>
+
+<p align="center">
+  <em>
+    Learning curve comparison between temporally ordered (HT) and shuffled (HTS) supervision on the RF test split. HT consistently outperforms HTS across all training fractions (25%, 50%, 75%, and 100%), with the performance gap increasing at full training scale.
+  </em>
+</p>
 
 The advantage of temporal ordering **increases as training data grows**.
 
