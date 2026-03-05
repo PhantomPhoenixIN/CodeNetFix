@@ -372,7 +372,6 @@ The following table summarizes the model architecture, training configuration, a
 | **Base model** | CodeT5-base |
 | **Model size** | ~220M parameters |
 | **Training strategy** | Full fine-tuning (FFT) |
-| **Repair formulation** | Code-to-code translation |
 | **Target languages evaluated** | C++, Java, Python |
 | **Optimizer** | AdamW |
 | **Learning rate** | 2 × 10⁻⁴ |
