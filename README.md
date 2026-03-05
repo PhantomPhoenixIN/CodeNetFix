@@ -46,8 +46,6 @@ This illustrates the progressive nature of human program repair and motivates pr
   </em>
 </p>
 
-Each submission receives execution feedback (Wrong Answer, Time Limit Exceeded, etc.), guiding iterative refinement until an **Accepted solution** is obtained.
-
 ---
 
 # Dataset: CodeNetFix
